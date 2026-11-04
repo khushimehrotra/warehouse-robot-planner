@@ -2,3 +2,9 @@ warehouse
 tests/test_vec
 tests/test_minheap
 tests/test_grid
+tests/test_tasks
+tests/test_robots
+tests/test_dnc
+tests/test_matrix
+tests/test_sort
+bench_w2

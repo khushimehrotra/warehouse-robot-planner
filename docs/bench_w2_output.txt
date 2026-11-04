@@ -1,0 +1,9 @@
+random         n=200000  merge    14.73 ms   quick    11.00 ms
+already sorted n=200000  merge     2.67 ms   quick     4.13 ms
+all equal      n=30000   merge     0.44 ms   quick   104.24 ms
+
+Matrix multiplication (Strassen cutoff 64)
+n=64   classic      0.08 ms   strassen      0.10 ms   same=yes
+n=128  classic      0.80 ms   strassen      0.88 ms   same=yes
+n=256  classic      6.45 ms   strassen      5.90 ms   same=yes
+n=512  classic     48.79 ms   strassen     40.78 ms   same=yes

@@ -1,7 +1,7 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -g -Iinclude -fsanitize=address,undefined
-LIB_SRC = src/vec.c src/minheap.c src/grid.c
-TESTS   = tests/test_vec tests/test_minheap tests/test_grid
+LIB_SRC = src/vec.c src/minheap.c src/grid.c src/task_io.c src/robot_io.c src/sort.c src/dnc.c src/matrix.c
+TESTS   = tests/test_vec tests/test_minheap tests/test_grid tests/test_tasks tests/test_robots tests/test_sort tests/test_dnc tests/test_matrix
 
 all: warehouse $(TESTS)
 
@@ -16,3 +16,6 @@ test: $(TESTS)
 
 clean:
 	rm -f warehouse $(TESTS)
+
+bench_w2: bench/bench_w2.c $(LIB_SRC)
+	$(CC) -O2 -Wall -Wextra -Iinclude bench/bench_w2.c $(LIB_SRC) -o bench_w2
