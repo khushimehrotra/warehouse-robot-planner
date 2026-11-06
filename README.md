@@ -12,6 +12,8 @@ algorithms, string matching), each tested against a brute-force oracle.
 - Classical and Strassen matrix multiplication
 - Unit and randomized tests, AddressSanitizer enabled
 - Benchmark runner (quick sort vs merge sort, Strassen vs classical)
+- Dijkstra route planning on the warehouse grid, verified against BFS
+- Greedy scheduling (activity selection, interval partitioning), Huffman coding, Kruskal and Prim MST
 
 ## Build and test (Linux or WSL)
     make
