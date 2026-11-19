@@ -19,3 +19,9 @@ tests/test_shortest
 tests/test_tsp
 bench_w4
 bench_w4
+tests/test_backtrack
+tests/test_bnb
+tests/test_flow
+tests/test_numtheory
+bench_w5
+bench_w5
