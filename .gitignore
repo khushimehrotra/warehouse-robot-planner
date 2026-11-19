@@ -14,3 +14,7 @@ tests/test_greedy
 tests/test_huffman
 tests/test_graph
 tests/test_gridpath
+tests/test_dp
+tests/test_shortest
+tests/test_tsp
+bench_w4
