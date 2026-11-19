@@ -19,3 +19,5 @@ clean:
 
 bench_w2: bench/bench_w2.c $(LIB_SRC)
 	$(CC) -O2 -Wall -Wextra -Iinclude bench/bench_w2.c $(LIB_SRC) -o bench_w2
+bench_w4: bench/bench_w4.c $(LIB_SRC)
+	$(CC) -O2 -Wall -Wextra -Iinclude bench/bench_w4.c $(LIB_SRC) -o bench_w4

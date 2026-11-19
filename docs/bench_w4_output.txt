@@ -1,0 +1,12 @@
+Shortest paths on an open grid (one source for Dijkstra and Bellman-Ford,
+all pairs for Floyd-Warshall)
+n=100   dijkstra    0.004 ms  bellman-ford    0.002 ms  floyd-warshall      0.42 ms
+n=400   dijkstra    0.013 ms  bellman-ford    0.005 ms  floyd-warshall     16.43 ms
+n=900   dijkstra    0.028 ms  bellman-ford    0.011 ms  floyd-warshall    178.89 ms
+
+Held-Karp TSP (random distances)
+n=8   cost=90        0.022 ms
+n=10  cost=83        0.132 ms
+n=12  cost=98        0.635 ms
+n=14  cost=97        3.399 ms
+n=16  cost=104      16.257 ms

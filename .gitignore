@@ -18,3 +18,4 @@ tests/test_dp
 tests/test_shortest
 tests/test_tsp
 bench_w4
+bench_w4
