@@ -1,8 +1,14 @@
 #include <stdio.h>
 #include <stdlib.h>
+#include <string.h>
 #include "grid.h"
 #include "gridpath.h"
 #include "tsp.h"
+#include "robot_io.h"
+#include "task_io.h"
+#include "sim.h"
+#include "strmatch.h"
+#include "huffman.h"
 
 /* Charger first, then every shelf (up to TSP_MAX_N stops in total). */
 static void pickup_tour_demo(const Grid *g) {
@@ -41,7 +47,63 @@ static void pickup_tour_demo(const Grid *g) {
     free(dist);
 }
 
+static void print_metrics(const char *name, const SimMetrics *m) {
+    printf("%-24s done=%-2d fail=%-2d unserved=%-2d makespan=%-4d late=%-2d avg_lat=%-6.1f "
+           "dist=%-5lld wait=%-4lld util=%.2f coll=%d\n",
+           name, m->completed, m->failed, m->unserved, m->makespan, m->deadline_misses,
+           m->avg_latency, m->total_distance, m->total_wait, m->utilization, m->collisions);
+}
+
+static void sim_demo(void) {
+    Grid g; Robot *rb = NULL; Task *tk = NULL; int nr = 0, nt = 0;
+    int rc1 = grid_load("data/sim_grid.txt", &g);
+    int rc2 = robots_load("data/sim_robots.txt", &rb, &nr);
+    int rc3 = tasks_load("data/sim_tasks.txt", &tk, &nt);
+    if (rc1 || rc2 || rc3) {
+        printf("Could not load the simulation data (%d %d %d)\n", rc1, rc2, rc3);
+        goto out;
+    }
+    static char logbuf[4096];
+    SimLog lg = {logbuf, (int)sizeof logbuf, 0, 0};
+    SimConfig cfg;
+    SimMetrics m;
+    sim_default_config(&cfg);
+    printf("%d robots, %d tasks, %dx%d warehouse\n\n", nr, nt, g.rows, g.cols);
+
+    cfg.log = &lg;
+    if (sim_run(&g, rb, nr, tk, nt, &cfg, &m, NULL) == 0) print_metrics("greedy nearest robot", &m);
+    cfg.log = NULL;
+    cfg.assign = SIM_ASSIGN_BNB;
+    if (sim_run(&g, rb, nr, tk, nt, &cfg, &m, NULL) == 0) print_metrics("batch branch and bound", &m);
+    cfg.assign = SIM_ASSIGN_GREEDY;
+    cfg.avoid_collisions = 0;
+    if (sim_run(&g, rb, nr, tk, nt, &cfg, &m, NULL) == 0) print_metrics("greedy, NO reservations", &m);
+
+    printf("\nEvent log of robot 1 (%d ticks):\n%.*s\n", lg.len, lg.len, lg.buf);
+    static const struct { const char *name; int (*f)(const char *, size_t, const char *, size_t,
+                                                       size_t *, size_t, size_t *); } M[] = {
+        {"naive", match_naive}, {"rabin-karp", match_rabin_karp},
+        {"automaton", match_automaton}, {"kmp", match_kmp}};
+    const char *pat[2] = {"MP", "WW"};      /* arrived-and-picked, and a stall of 2+ ticks */
+    for (int p = 0; p < 2; p++) {
+        printf("pattern \"%s\":", pat[p]);
+        for (int i = 0; i < 4; i++) {
+            size_t cnt = 0;
+            M[i].f(lg.buf, (size_t)lg.len, pat[p], 2, NULL, 0, &cnt);
+            printf("  %s=%zu", M[i].name, cnt);
+        }
+        printf("\n");
+    }
+    Huff h;
+    if (lg.len > 0 && huff_build(&h, (const unsigned char *)lg.buf, (size_t)lg.len) == 0)
+        printf("log size: %d bits plain, %zu bits with Huffman\n", 8 * lg.len,
+               huff_bits(&h, (const unsigned char *)lg.buf, (size_t)lg.len));
+out:
+    free(rb); free(tk); grid_free(&g);
+}
+
 int main(int argc, char *argv[]) {
+    if (argc > 1 && strcmp(argv[1], "sim") == 0) { sim_demo(); return 0; }
     const char *file = (argc > 1) ? argv[1] : "data/small_grid.txt";
 
     Grid g;

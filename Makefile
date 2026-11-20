@@ -1,7 +1,7 @@
 CC      = gcc
 CFLAGS  = -Wall -Wextra -g -Iinclude -fsanitize=address,undefined
-LIB_SRC = src/vec.c src/minheap.c src/grid.c src/task_io.c src/robot_io.c src/sort.c src/dnc.c src/matrix.c src/greedy.c src/huffman.c src/unionfind.c src/graph.c src/gridpath.c src/dp.c src/shortest.c src/tsp.c src/backtrack.c src/bnb.c src/flow.c src/numtheory.c
-TESTS   = tests/test_vec tests/test_minheap tests/test_grid tests/test_tasks tests/test_robots tests/test_sort tests/test_dnc tests/test_matrix tests/test_greedy tests/test_huffman tests/test_graph tests/test_gridpath tests/test_dp tests/test_shortest tests/test_tsp tests/test_backtrack tests/test_bnb tests/test_flow tests/test_numtheory
+LIB_SRC = src/vec.c src/minheap.c src/grid.c src/task_io.c src/robot_io.c src/sort.c src/dnc.c src/matrix.c src/greedy.c src/huffman.c src/unionfind.c src/graph.c src/gridpath.c src/dp.c src/shortest.c src/tsp.c src/backtrack.c src/bnb.c src/flow.c src/numtheory.c src/strmatch.c src/sim.c
+TESTS   = tests/test_vec tests/test_minheap tests/test_grid tests/test_tasks tests/test_robots tests/test_sort tests/test_dnc tests/test_matrix tests/test_greedy tests/test_huffman tests/test_graph tests/test_gridpath tests/test_dp tests/test_shortest tests/test_tsp tests/test_backtrack tests/test_bnb tests/test_flow tests/test_numtheory tests/test_strmatch tests/test_sim
 
 all: warehouse $(TESTS)
 
