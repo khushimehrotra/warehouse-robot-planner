@@ -24,6 +24,3 @@ bench_w4: bench/bench_w4.c $(LIB_SRC)
 
 bench_w5: bench/bench_w5.c $(LIB_SRC)
 	$(CC) -O2 -Wall -Wextra -Iinclude bench/bench_w5.c $(LIB_SRC) -o bench_w5
-
-bench_w5: bench/bench_w5.c $(LIB_SRC)
-	$(CC) -O2 -Wall -Wextra -Iinclude bench/bench_w5.c $(LIB_SRC) -o bench_w5
