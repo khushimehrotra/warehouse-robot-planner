@@ -1,26 +1,26 @@
 N-Queens: count all solutions
-n=6   solutions=4           0.019 ms
-n=7   solutions=40          0.056 ms
-n=8   solutions=92          0.221 ms
-n=9   solutions=352         1.126 ms
-n=10  solutions=724         4.370 ms
-n=11  solutions=2680       20.345 ms
+n=6   solutions=4           0.011 ms
+n=7   solutions=40          0.035 ms
+n=8   solutions=92          0.144 ms
+n=9   solutions=352         0.600 ms
+n=10  solutions=724         2.851 ms
+n=11  solutions=2680       13.723 ms
 
 Subset sum: 28 random items (1..50), target 350
-solutions=1145579  nodes visited=77380576  (full tree: 536870911)  179.658 ms
+solutions=1145579  nodes visited=77380576  (full tree: 536870911)  177.247 ms
 
 Task assignment by branch and bound (random costs 1..99)
 n   mode   generated   expanded     pruned        ms  total
-6   FIFO        1247        528        709      0.09    128
+6   FIFO        1247        528        709      0.10    128
 6   LIFO          45         15         28      0.00    128
 6   LC            33          9         24      0.01    128
-7   FIFO        8677       3638       5022      0.52     94
+7   FIFO        8677       3638       5022      0.51     94
 7   LIFO         137         46         82      0.01     94
 7   LC            58         14         44      0.01     94
-8   FIFO       69296      28977      40304      3.21    157
-8   LIFO         439        113        316      0.06    157
-8   LC           309         65        244      0.06    157
-9   FIFO      623547     260668     362862     34.62    130
+8   FIFO       69296      28977      40304      3.06    157
+8   LIFO         439        113        316      0.05    157
+8   LC           309         65        244      0.07    157
+9   FIFO      623547     260668     362862     30.86    130
 9   LIFO        1334        308       1008      0.17    130
 9   LC           387         74        313      0.09    130
 10  FIFO  stopped with code -4 (node limit)
@@ -31,7 +31,7 @@ Aisle network (robots per minute)
 max throughput = 10   source side of the bottleneck cut: 0 1 2 3
 
 Matching: 200 robots x 200 tasks, 5 candidate tasks each
-augmenting paths: 200 pairs in 0.098 ms | via max flow: 200 pairs in 0.591 ms
+augmenting paths: 200 pairs in 0.112 ms | via max flow: 200 pairs in 0.637 ms
 
 CRT: charge every 4 (offset 1), service every 9 (3), calibration every 5 (2)
 first time all three coincide: t=57, then every 180 ticks
