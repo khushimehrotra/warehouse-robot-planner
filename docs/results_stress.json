@@ -4,11 +4,11 @@
    "deadline_misses": 9391, "avg_latency": 3214.970, "max_latency": 6449,
    "total_distance": 1073570, "total_wait": 10171, "utilization": 0.6165,
    "collisions": 0, "plan_calls": 35595, "plan_failures": 5596,
-   "runtime_ms": 24826.913, "peak_mem_kb": 6060},
+   "runtime_ms": 13969.061, "peak_mem_kb": 6052},
   {"scenario": "stress", "strategy": "batch-bnb", "robots": 100, "tasks": 10000,
    "completed": 10000, "failed": 0, "unserved": 0, "makespan": 11385,
    "deadline_misses": 9394, "avg_latency": 3194.261, "max_latency": 6388,
    "total_distance": 1070224, "total_wait": 9652, "utilization": 0.6138,
    "collisions": 0, "plan_calls": 35445, "plan_failures": 5447,
-   "runtime_ms": 23668.237, "peak_mem_kb": 7096}
+   "runtime_ms": 13466.026, "peak_mem_kb": 7172}
 ]

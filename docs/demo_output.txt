@@ -1,0 +1,34 @@
+make: 'planner_fast' is up to date.
+Loaded a 9x12 grid, 4 robots, 10 tasks
+
+-- NORMAL OPERATION --
+normal      greedy           R=4   T=10    done=10    fail=0   unserved=0    makespan=55     late=0     lat=20.4    dist=178     wait=0      coll=0         0.3 ms     2 MB
+normal      batch-bnb        R=4   T=10    done=10    fail=0   unserved=0    makespan=56     late=0     lat=20.3    dist=168     wait=0      coll=0         0.1 ms     2 MB
+wrote docs/results_normal.csv (code 0) and docs/results_normal.json (code 0)
+Loaded a 9x12 grid, 4 robots, 10 tasks
+
+-- CAPACITY / CONSTRAINT SHOCK (baseline, then 2 robots lost, then aisle blocked) --
+normal      greedy           R=4   T=10    done=10    fail=0   unserved=0    makespan=55     late=0     lat=20.4    dist=178     wait=0      coll=0         0.5 ms     2 MB
+normal      batch-bnb        R=4   T=10    done=10    fail=0   unserved=0    makespan=56     late=0     lat=20.3    dist=168     wait=0      coll=0         0.2 ms     2 MB
+shock-fleet greedy           R=2   T=10    done=10    fail=0   unserved=0    makespan=113    late=0     lat=49.6    dist=208     wait=1      coll=0         0.2 ms     2 MB
+shock-fleet batch-bnb        R=2   T=10    done=10    fail=0   unserved=0    makespan=113    late=0     lat=49.6    dist=208     wait=1      coll=0         0.2 ms     2 MB
+shock-aisle greedy           R=4   T=10    done=10    fail=0   unserved=0    makespan=82     late=0     lat=35.5    dist=276     wait=0      coll=0         0.4 ms     2 MB
+shock-aisle batch-bnb        R=4   T=10    done=10    fail=0   unserved=0    makespan=73     late=0     lat=33.7    dist=260     wait=1      coll=0         0.2 ms     2 MB
+wrote docs/results_shock.csv (code 0) and docs/results_shock.json (code 0)
+
+-- STRESS: 100 robots, 10000 tasks, 40x60 grid --
+stress      greedy           R=100 T=10000 done=10000 fail=0   unserved=0    makespan=11448  late=9391  lat=3215.0  dist=1073570 wait=10171  coll=0     13969.1 ms     5 MB
+stress      batch-bnb        R=100 T=10000 done=10000 fail=0   unserved=0    makespan=11385  late=9394  lat=3194.3  dist=1070224 wait=9652   coll=0     13466.0 ms     7 MB
+wrote docs/results_stress.csv (code 0) and docs/results_stress.json (code 0)
+
+-- BENCHMARK (greedy vs batch B&B; peak memory is a process-wide maximum) --
+small       greedy           R=5   T=50    done=50    fail=0   unserved=0    makespan=620    late=16    lat=294.7   dist=2842    wait=0      coll=0         2.6 ms     1 MB
+small       batch-bnb        R=5   T=50    done=50    fail=0   unserved=0    makespan=621    late=16    lat=293.3   dist=2834    wait=2      coll=0         2.7 ms     2 MB
+medium      greedy           R=20  T=500   done=500   fail=0   unserved=0    makespan=2784   late=418   lat=1259.5  dist=53456   wait=22     coll=0       102.1 ms     4 MB
+medium      batch-bnb        R=20  T=500   done=500   fail=0   unserved=0    makespan=2768   late=420   lat=1245.8  dist=53194   wait=35     coll=0       116.0 ms     6 MB
+large       greedy           R=50  T=2000  done=2000  fail=0   unserved=0    makespan=4562   late=1773  lat=1769.1  dist=216890  wait=572    coll=0       564.6 ms     6 MB
+large       batch-bnb        R=50  T=2000  done=2000  fail=0   unserved=0    makespan=4575   late=1773  lat=1768.1  dist=216380  wait=613    coll=0       748.3 ms     7 MB
+adversarial greedy           R=10  T=100   done=100   fail=0   unserved=0    makespan=712    late=38    lat=328.1   dist=6582    wait=66     coll=0         4.7 ms     7 MB
+adversarial batch-bnb        R=10  T=100   done=100   fail=0   unserved=0    makespan=716    late=37    lat=325.9   dist=6592    wait=58     coll=0         9.6 ms     7 MB
+saved docs/bench_w7.csv (code 0)
+Results are in docs/results_*.csv, docs/results_*.json and docs/bench_w7.csv

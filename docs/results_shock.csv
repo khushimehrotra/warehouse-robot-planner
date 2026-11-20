@@ -1,0 +1,7 @@
+scenario,strategy,robots,tasks,completed,failed,unserved,makespan,deadline_misses,avg_latency,max_latency,total_distance,total_wait,utilization,collisions,plan_calls,plan_failures,runtime_ms,peak_mem_kb
+normal,greedy,4,10,10,0,0,55,0,20.400,39,178,0,0.4697,0,30,0,0.523,2052
+normal,batch-bnb,4,10,10,0,0,56,0,20.300,40,168,0,0.4615,0,30,0,0.215,2052
+shock-fleet,greedy,2,10,10,0,0,113,0,49.600,97,208,1,0.5595,0,30,0,0.180,2052
+shock-fleet,batch-bnb,2,10,10,0,0,113,0,49.600,97,208,1,0.5595,0,30,0,0.165,2052
+shock-aisle,greedy,4,10,10,0,0,82,0,35.500,66,276,0,0.5323,0,30,0,0.363,2052
+shock-aisle,batch-bnb,4,10,10,0,0,73,0,33.700,57,260,1,0.5494,0,30,0,0.222,2052
