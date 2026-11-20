@@ -1,0 +1,3 @@
+scenario,strategy,robots,tasks,completed,failed,unserved,makespan,deadline_misses,avg_latency,max_latency,total_distance,total_wait,utilization,collisions,plan_calls,plan_failures,runtime_ms,peak_mem_kb
+normal,greedy,4,10,10,0,0,55,0,20.400,39,178,0,0.4697,0,30,0,0.416,2492
+normal,batch-bnb,4,10,10,0,0,56,0,20.300,40,168,0,0.4615,0,30,0,0.298,2492

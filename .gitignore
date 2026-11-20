@@ -27,3 +27,6 @@ bench_w5
 bench_w5
 bench_w5
 bench_w6
+planner
+planner_fast
+tests/test_scenario

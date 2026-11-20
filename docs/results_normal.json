@@ -1,0 +1,14 @@
+[
+  {"scenario": "normal", "strategy": "greedy", "robots": 4, "tasks": 10,
+   "completed": 10, "failed": 0, "unserved": 0, "makespan": 55,
+   "deadline_misses": 0, "avg_latency": 20.400, "max_latency": 39,
+   "total_distance": 178, "total_wait": 0, "utilization": 0.4697,
+   "collisions": 0, "plan_calls": 30, "plan_failures": 0,
+   "runtime_ms": 0.416, "peak_mem_kb": 2492},
+  {"scenario": "normal", "strategy": "batch-bnb", "robots": 4, "tasks": 10,
+   "completed": 10, "failed": 0, "unserved": 0, "makespan": 56,
+   "deadline_misses": 0, "avg_latency": 20.300, "max_latency": 40,
+   "total_distance": 168, "total_wait": 0, "utilization": 0.4615,
+   "collisions": 0, "plan_calls": 30, "plan_failures": 0,
+   "runtime_ms": 0.298, "peak_mem_kb": 2492}
+]
