@@ -1,0 +1,24 @@
+random text, 4 letters (n=2000000, m=8)
+  naive       rc=0 matches=31           10.257 ms
+  rabin-karp  rc=0 matches=31           34.532 ms
+  automaton   rc=0 matches=31            6.822 ms
+  kmp         rc=0 matches=31           11.257 ms
+adversarial: a^n vs a^999 b (n=200000, m=1000)
+  naive       rc=0 matches=0            86.781 ms
+  rabin-karp  rc=0 matches=0             3.271 ms
+  automaton   rc=0 matches=0             1.176 ms
+  kmp         rc=0 matches=0             0.478 ms
+many matches: a^n vs a^10 (n=200000, m=10)
+  naive       rc=0 matches=199991        0.887 ms
+  rabin-karp  rc=0 matches=199991        3.208 ms
+  automaton   rc=0 matches=199991        0.640 ms
+  kmp         rc=0 matches=199991        0.195 ms
+
+Warehouse simulation, 40x60 grid with racks
+normal  greedy             R=10  T=200   done=200   unserved=0    makespan=2576   late=167   avg_lat=1196.3  dist=24616   wait=6      coll=0        166.6 ms
+normal  batch B&B          R=10  T=200   done=200   unserved=0    makespan=2555   late=167   avg_lat=1184.8  dist=24538   wait=6      coll=0        114.5 ms
+normal  NO reserv.         R=10  T=200   done=200   unserved=0    makespan=2524   late=166   avg_lat=1167.3  dist=24478   wait=0      coll=153       51.6 ms
+medium  greedy             R=20  T=500   done=500   unserved=0    makespan=3027   late=426   avg_lat=1278.3  dist=57978   wait=79     coll=0        245.3 ms
+medium  batch B&B          R=20  T=500   done=500   unserved=0    makespan=3042   late=424   avg_lat=1281.1  dist=58132   wait=41     coll=0        320.5 ms
+large   greedy             R=40  T=1000  done=1000  unserved=0    makespan=2872   late=799   avg_lat=938.9   dist=107812  wait=223    coll=0        451.5 ms
+large   batch B&B          R=40  T=1000  done=1000  unserved=0    makespan=2869   late=800   avg_lat=938.7   dist=107888  wait=214    coll=0        494.0 ms

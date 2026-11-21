@@ -1,0 +1,11 @@
+4 robots, 10 tasks, 9x12 warehouse
+
+greedy nearest robot     done=10 fail=0  unserved=0  makespan=55   late=0  avg_lat=20.4   dist=178   wait=0    util=0.47 coll=0
+batch branch and bound   done=10 fail=0  unserved=0  makespan=56   late=0  avg_lat=20.3   dist=168   wait=0    util=0.46 coll=0
+greedy, NO reservations  done=10 fail=0  unserved=0  makespan=51   late=0  avg_lat=20.2   dist=176   wait=0    util=0.53 coll=10
+
+Event log of robot 1 (66 ticks):
+MMPMMMMMMDMMMMMMMMMMMMMMPMMMMMMMDMMMMMMMMMMMMMIIIIIIIIIIIIIIIIIIII
+pattern "MP":  naive=2  rabin-karp=2  automaton=2  kmp=2
+pattern "WW":  naive=0  rabin-karp=0  automaton=0  kmp=0
+log size: 528 bits plain, 94 bits with Huffman

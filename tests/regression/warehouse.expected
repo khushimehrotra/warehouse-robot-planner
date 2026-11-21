@@ -1,0 +1,16 @@
+Loaded 5 x 8 warehouse:
+C..#....
+.#.#.##.
+.#...S..
+.#####.#
+......S.
+
+Route from charger (0,0) to shelf (2,5): 7 steps
+C**#....
+.#*#.##.
+.#***S..
+.#####.#
+......S.
+
+Best pickup tour (charger -> 2 shelves -> charger), 20 steps:
+  (0,0) -> (4,6) -> (2,5) -> (0,0)
